@@ -10,9 +10,6 @@
    <children>
       <Button layoutX="97.0" layoutY="316.0" mnemonicParsing="false" text="Button" />
       <Label layoutX="230.0" layoutY="93.0" text="Label" textFill="#b50000">
-         <font>
-            <Font size="61.0" />
-         </font>
       </Label>
    </children>
 </AnchorPane>
