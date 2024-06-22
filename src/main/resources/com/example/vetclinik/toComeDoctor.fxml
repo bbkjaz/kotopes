@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vetclinik.ToComeDoctor">
+    <children>
+        <Label layoutX="42.0" layoutY="67.0" prefHeight="29.0" prefWidth="255.0" text="Вход в профиль врача" textFill="#792424">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+        <PasswordField layoutX="42.0" layoutY="212.0" />
+        <TextField layoutX="42.0" layoutY="157.0" />
+        <Button fx:id="login" layoutX="42.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#login" text="Войти" textFill="#540c0c">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+        <Button fx:id="back" layoutX="42.0" layoutY="329.0" mnemonicParsing="false" onMouseClicked="#toBack" text="Назад" textFill="#511919">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Button>
+        <Label fx:id="phoneNumberField" layoutX="257.0" layoutY="159.0" prefHeight="23.0" prefWidth="139.0" text="Номер телефона" textFill="#573333">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="passwordField" layoutX="257.0" layoutY="214.0" text="Пароль" textFill="#4d1c1c">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

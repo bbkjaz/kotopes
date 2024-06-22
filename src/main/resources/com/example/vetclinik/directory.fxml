@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vetclinik.Directory">
+   <children>
+      <Button fx:id="back" layoutX="523.0" layoutY="347.0" mnemonicParsing="false" onMouseClicked="#toBack" text="Назад" textFill="#791616">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="38.0" layoutY="25.0" text="Справочник всех пород и их частых заболеваний" textFill="#791919">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="87.0" layoutY="94.0" text="Порода" textFill="#5e1717">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="334.0" layoutY="94.0" text="Частое заболевание" textFill="#652424">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

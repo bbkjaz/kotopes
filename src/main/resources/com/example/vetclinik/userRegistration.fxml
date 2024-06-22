@@ -7,8 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-
 <AnchorPane onMouseClicked="#registration" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vetclinik.UserRegistration">
    <children>
       <Label layoutX="62.0" layoutY="57.0" text="Регистрация пользователя" textFill="#802424">
@@ -41,7 +39,7 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="registration" layoutX="286.0" layoutY="309.0" mnemonicParsing="false" text="Зарегистрироваться!" textFill="#611717" onAction="#registration">
+      <Button fx:id="registration" layoutX="286.0" layoutY="309.0" mnemonicParsing="false" onAction="#registration" text="Зарегистрироваться!" textFill="#611717">
          <font>
             <Font size="18.0" />
          </font>

@@ -33,13 +33,29 @@ public class UserAccount {
     private Button toChangeData;
 
     @FXML
-    void makeAnAppointment(KeyEvent event) {
-
+    void makeAnAppointment(MouseEvent event) {
+        try {
+            Parent makeAppointmentRoot = FXMLLoader.load(getClass().getResource("makeAnAppointment.fxml"));
+            Scene makeAppointmentScene = new Scene(makeAppointmentRoot);
+            Stage window = (Stage) makeAnAppointment.getScene().getWindow();
+            window.setScene(makeAppointmentScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void myTricks(MouseEvent event) {
-
+        try {
+            Parent myTricksRoot = FXMLLoader.load(getClass().getResource("myTricks.fxml"));
+            Scene myTricksScene = new Scene(myTricksRoot);
+            Stage window = (Stage) myTricks.getScene().getWindow();
+            window.setScene(myTricksScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -58,7 +74,15 @@ public class UserAccount {
 
     @FXML
     void toChangeData(MouseEvent event) {
-
+        try {
+            Parent changeUserRoot = FXMLLoader.load(getClass().getResource("changeUser.fxml"));
+            Scene changeUserScene = new Scene(changeUserRoot);
+            Stage window = (Stage) toChangeData.getScene().getWindow();
+            window.setScene(changeUserScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

@@ -30,7 +30,15 @@ public class DoctorLogin {
 
     @FXML
     void loginToAccountDoctor(MouseEvent event) {
-
+        try {
+            Parent toComeDoctorRoot = FXMLLoader.load(getClass().getResource("toComeDoctor.fxml"));
+            Scene toComeDoctorScene = new Scene(toComeDoctorRoot);
+            Stage window = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            window.setScene(toComeDoctorScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -48,7 +56,15 @@ public class DoctorLogin {
 
     @FXML
     void toRegistrationDoctor(MouseEvent event) {
-
+        try {
+            Parent registrationRoot = FXMLLoader.load(getClass().getResource("doctorRegistration.fxml"));
+            Scene registrationScene = new Scene(registrationRoot);
+            Stage window = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            window.setScene(registrationScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

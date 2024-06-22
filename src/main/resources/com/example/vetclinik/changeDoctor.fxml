@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vetclinik.ChangeDoctor">
+   <children>
+      <Button fx:id="back" layoutX="524.0" layoutY="32.0" mnemonicParsing="false" onMouseClicked="#toBack" text="Назад" textFill="#5b1717">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="save" layoutX="244.0" layoutY="310.0" mnemonicParsing="false" onMouseClicked="#toSave" text="Сохранить" textFill="#651717">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="58.0" layoutY="107.0" text="Имя" textFill="#4d0f0f">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="58.0" layoutY="146.0" text="Адрес" textFill="#651b1b">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="58.0" layoutY="189.0" text="Номер телефона" textFill="#651414">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="54.0" layoutY="229.0" text="Пароль" textFill="#5e1c1c">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="name" layoutX="220.0" layoutY="106.0" />
+      <TextField fx:id="adres" layoutX="220.0" layoutY="145.0" />
+      <TextField fx:id="number" layoutX="220.0" layoutY="188.0" />
+      <TextField fx:id="password" layoutX="220.0" layoutY="228.0" />
+      <Label layoutX="62.0" layoutY="32.0" text="Изменение моих персональных данных" textFill="#721d1d">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

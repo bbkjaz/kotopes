@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vetclinik.DoctorAccount">
+<children>
+    <Button fx:id="back" layoutX="518.0" layoutY="24.0" mnemonicParsing="false" onMouseClicked="#toBack" text="Назад" textFill="#652222">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </Button>
+    <Button fx:id="directory" layoutX="67.0" layoutY="343.0" mnemonicParsing="false" onMouseClicked="#directory" text="Справочник пород и их частых заболеваний" textFill="#5b0a0a">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Button>
+    <Button fx:id="toChangeData" layoutX="69.0" layoutY="236.0" mnemonicParsing="false" onMouseClicked="#toChangeData" text="Изменить данные" textFill="#611414">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Button>
+    <Button fx:id="myTricks" layoutX="67.0" layoutY="289.0" mnemonicParsing="false" onMouseClicked="#myTricks" text="Мои приемы" textFill="#431111">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Button>
+    <Label layoutX="67.0" layoutY="45.0" text="Аккаунт врача" textFill="#6f1515">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+    </Label>
+    <Label layoutX="67.0" layoutY="104.0" text="Мое имя" textFill="#4a1414">
+        <font>
+            <Font size="18.0" />
+        </font></Label>
+    <Label layoutX="67.0" layoutY="144.0" text="Мой номер телефона" textFill="#461a1a">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+    <Label layoutX="67.0" layoutY="184.0" text="Мой адрес" textFill="#401717">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="name" layoutX="266.0" layoutY="107.0" text="Имя" textFill="#4a1313" />
+    <Label fx:id="number" layoutX="266.0" layoutY="147.0" text="79520780945" textFill="#611010" />
+    <Label fx:id="adres" layoutX="266.0" layoutY="187.0" text="Москва, Никитинска 20" textFill="#431919" />
+</children>
+</AnchorPane>

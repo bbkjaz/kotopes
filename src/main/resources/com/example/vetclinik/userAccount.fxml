@@ -12,7 +12,7 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="makeAnAppointment" layoutX="67.0" layoutY="343.0" mnemonicParsing="false" onKeyPressed="#makeAnAppointment" text="Запись на прием" textFill="#5b0a0a">
+      <Button fx:id="makeAnAppointment" layoutX="67.0" layoutY="343.0" mnemonicParsing="false" onMouseClicked="#makeAnAppointment" text="Запись на прием" textFill="#5b0a0a">
          <font>
             <Font size="18.0" />
          </font>
