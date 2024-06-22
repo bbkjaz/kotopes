@@ -30,12 +30,28 @@ public class UserLogin {
 
     @FXML
     void ClickLoginToAccountUser(MouseEvent event) {
-
+        try {
+            Parent toComeUserRoot = FXMLLoader.load(getClass().getResource("toComeUser.fxml"));
+            Scene toComeUserScene = new Scene(toComeUserRoot);
+            Stage window = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            window.setScene(toComeUserScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void ClickRegistrationUser(MouseEvent event) {
-
+        try {
+            Parent registrationRoot = FXMLLoader.load(getClass().getResource("userRegistration.fxml"));
+            Scene registrationScene = new Scene(registrationRoot);
+            Stage window = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            window.setScene(registrationScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
