@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vetclinik.Start">
+    <children>
+        <Label layoutX="117.0" layoutY="73.0" prefHeight="37.0" prefWidth="366.0" text="Ветеринарная клиника" textFill="#753131">
+            <font>
+                <Font name="Kefa Bold" size="31.0" />
+            </font>
+        </Label>
+        <Label layoutX="202.0" layoutY="116.0" text="КотоПэс" textAlignment="CENTER" textFill="#834747">
+            <font>
+                <Font name="Kefa Bold" size="46.0" />
+            </font>
+        </Label>
+        <Button fx:id="ButtonUser" layoutX="221.0" layoutY="207.0" mnemonicParsing="false" onMouseClicked="#ClickUser" text="Посетитель" textFill="#863f3f">
+            <font>
+                <Font name="Kefa Regular" size="23.0" />
+            </font>
+        </Button>
+        <Button fx:id="ButtonDoctor" layoutX="259.0" layoutY="260.0" mnemonicParsing="false" onMouseClicked="#ClickDoctor" text="Врач" textFill="#7c4646">
+            <font>
+                <Font size="23.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

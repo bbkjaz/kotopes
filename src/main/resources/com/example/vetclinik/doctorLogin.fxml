@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vetclinik.DoctorLogin">
+   <children>
+      <Label layoutX="146.0" layoutY="141.0" text="Я - врач милых животных" textFill="#7c3737">
+         <font>
+            <Font name="Kefa Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="loginAccountDoctor" layoutX="104.0" layoutY="212.0" mnemonicParsing="false" onMouseClicked="#loginToAccountDoctor" text="Войти" textFill="#7c3c3c">
+         <font>
+            <Font name="Kefa Regular" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="back" layoutX="22.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#toBack" text="Назад" textFill="#753939">
+         <font>
+            <Font name="Kefa Regular" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="registrationDoctor" layoutX="104.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#toRegistrationDoctor" text="Зарегистрироваться" textFill="#753f3f">
+         <font>
+            <Font name="Kefa Regular" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

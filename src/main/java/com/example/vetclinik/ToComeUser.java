@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 
-public class HelloController {
+public class ToComeUser {
 
     @FXML
     private ResourceBundle resources;
@@ -16,5 +16,5 @@ public class HelloController {
     void initialize() {
 
     }
-/////
+
 }
