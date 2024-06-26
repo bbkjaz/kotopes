@@ -6,7 +6,7 @@
   </component>
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
@@ -17,6 +17,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="3353148e-c967-488c-aa84-ae2ffb884243">
+      <console name="Connection " type="STANDARD" schema="" session="Main" />
       <console name="Connection 1" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
