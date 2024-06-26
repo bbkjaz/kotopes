@@ -5,17 +5,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vetclinik.DoctorTricks">
-<children>
-    <Label layoutX="55.0" layoutY="38.0" prefHeight="29.0" prefWidth="306.0" text="Записи клиентов на прием" textFill="#7c1919">
-        <font>
-            <Font name="System Bold" size="24.0" />
-        </font>
-    </Label>
-    <Button fx:id="back" layoutX="505.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#toBack" text="Назад" textFill="#611818">
-        <font>
-            <Font size="15.0" />
-        </font>
-    </Button>
-</children>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vetclinik.DoctorTricks">
+    <children>
+        <Label layoutX="55.0" layoutY="38.0" prefHeight="29.0" prefWidth="306.0" text="Записи клиентов на прием" textFill="#7c1919">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+        <Button fx:id="back" layoutX="505.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#toBack" text="Назад" textFill="#611818">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Button>
+        <Label fx:id="tricks" layoutX="55.0" layoutY="111.0" prefHeight="252.0" prefWidth="514.0" />
+    </children>
 </AnchorPane>

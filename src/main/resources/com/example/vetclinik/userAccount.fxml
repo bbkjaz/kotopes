@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vetclinik.UserAccount">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vetclinik.UserAccount">
    <children>
       <Button fx:id="back" layoutX="518.0" layoutY="24.0" mnemonicParsing="false" onMouseClicked="#toBack" text="Назад" textFill="#652222">
          <font>
@@ -46,8 +46,8 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="266.0" layoutY="107.0" text="Имя" textFill="#4a1313" />
-      <Label layoutX="266.0" layoutY="147.0" text="79520780945" textFill="#611010" />
-      <Label layoutX="266.0" layoutY="187.0" text="Москва, Никитинска 20" textFill="#431919" />
+      <Label fx:id="name" layoutX="266.0" layoutY="107.0" text="Имя" textFill="#4a1313" />
+      <Label fx:id="phone" layoutX="266.0" layoutY="147.0" text="79520780945" textFill="#611010" />
+      <Label fx:id="adres" layoutX="266.0" layoutY="187.0" text="Москва, Никитинска 20" textFill="#431919" />
    </children>
 </AnchorPane>

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane onMouseClicked="#registration" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vetclinik.UserRegistration">
+<AnchorPane onMouseClicked="#registration" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vetclinik.UserRegistration">
    <children>
       <Label layoutX="62.0" layoutY="57.0" text="Регистрация пользователя" textFill="#802424">
          <font>
@@ -48,5 +48,6 @@
       <TextField fx:id="number" layoutX="304.0" layoutY="208.0" />
       <TextField fx:id="adres" layoutX="303.0" layoutY="170.0" />
       <TextField fx:id="name" layoutX="303.0" layoutY="132.0" />
+      <Label fx:id="errorText" layoutX="274.0" layoutY="284.0" />
    </children>
 </AnchorPane>

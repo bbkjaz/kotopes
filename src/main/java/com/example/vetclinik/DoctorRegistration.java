@@ -38,20 +38,35 @@ public class DoctorRegistration {
 
     @FXML
     private Button registration;
+    private DoctorSQL doctorSQL;
+    public DoctorRegistration(){
+        doctorSQL = DoctorSQL.getInstance();
+    }
 
     @FXML
     void registration(MouseEvent event) {
         try {
-            // Сохранение данных о регистрации можно добавить сюда
-            // Например, сохранение в базе данных или файл
+            if (name.getText().isEmpty() & password.getText().isEmpty() & number.getText().isEmpty() & adres.getText().isEmpty() & password.getText().isEmpty()) {
+                //errorText.setText("заполните все поля");
+            }
+            else {
+                boolean flag = doctorSQL.addDoctor(name.getText(),number.getText(),adres.getText(),password.getText());
+                if (flag) {
+                    Parent userAccountRoot = FXMLLoader.load(getClass().getResource("toComeDoctor.fxml"));
+                    Scene userAccountScene = new Scene(userAccountRoot);
+                    Stage window = (Stage) registration.getScene().getWindow();
+                    window.setScene(userAccountScene);
+                    window.show();
+                }
+                else {
+                    //System.out.println("ошибка");
+                }
+            }
 
-            // Переход на страницу аккаунта
-            Parent accountRoot = FXMLLoader.load(getClass().getResource("doctorAccount.fxml"));
-            Scene accountScene = new Scene(accountRoot);
-            Stage window = (Stage) ((Button) event.getSource()).getScene().getWindow();
-            window.setScene(accountScene);
-            window.show();
-        } catch (IOException e) {
+
+        }
+
+        catch (IOException e) {
             e.printStackTrace();
         }
     }

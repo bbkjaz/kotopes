@@ -8,7 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.KeyEvent;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -21,6 +21,9 @@ public class UserAccount {
     private URL location;
 
     @FXML
+    private Label adres;
+
+    @FXML
     private Button back;
 
     @FXML
@@ -30,8 +33,17 @@ public class UserAccount {
     private Button myTricks;
 
     @FXML
-    private Button toChangeData;
+    private Label name;
 
+    @FXML
+    private Label phone;
+
+    @FXML
+    private Button toChangeData;
+    private UserSQL userSQL;
+    public UserAccount(){
+        userSQL = UserSQL.getInstance();
+    }
     @FXML
     void makeAnAppointment(MouseEvent event) {
         try {
@@ -87,10 +99,20 @@ public class UserAccount {
 
     @FXML
     void initialize() {
+        assert adres != null : "fx:id=\"adres\" was not injected: check your FXML file 'userAccount.fxml'.";
         assert back != null : "fx:id=\"back\" was not injected: check your FXML file 'userAccount.fxml'.";
         assert makeAnAppointment != null : "fx:id=\"makeAnAppointment\" was not injected: check your FXML file 'userAccount.fxml'.";
         assert myTricks != null : "fx:id=\"myTricks\" was not injected: check your FXML file 'userAccount.fxml'.";
+        assert name != null : "fx:id=\"name\" was not injected: check your FXML file 'userAccount.fxml'.";
+        assert phone != null : "fx:id=\"phone\" was not injected: check your FXML file 'userAccount.fxml'.";
         assert toChangeData != null : "fx:id=\"toChangeData\" was not injected: check your FXML file 'userAccount.fxml'.";
+
+        phone.setText(ToComeUser.getLogin());
+        String[] users = userSQL.getUser(ToComeUser.getLogin());
+        name.setText(users[1]);
+        adres.setText(users[2]);
+
+
 
     }
 

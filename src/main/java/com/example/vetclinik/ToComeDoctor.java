@@ -9,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -27,22 +29,46 @@ public class ToComeDoctor {
     private Button login;
 
     @FXML
-    private Label passwordField;
+    private PasswordField passwordField;
 
     @FXML
-    private Label phoneNumberField;
-
+    private TextField phoneNumberField;
+    private static String log;
+    @FXML
+    private Label error;
+    private static String password;
+    private DoctorSQL doctorSQL;
+    public ToComeDoctor(){
+        doctorSQL = DoctorSQL.getInstance();
+    }
     @FXML
     void login(MouseEvent event) {
-        try {
-            Parent accountRoot = FXMLLoader.load(getClass().getResource("doctorAccount.fxml"));
-            Scene accountScene = new Scene(accountRoot);
-            Stage window = (Stage) ((Button) event.getSource()).getScene().getWindow();
-            window.setScene(accountScene);
-            window.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+        password = passwordField.getText();
+        log = phoneNumberField.getText();
+        boolean flag = doctorSQL.isUsers(phoneNumberField.getText(), passwordField.getText());
+        if(flag) {
+            try {
+
+                Parent accountRoot = FXMLLoader.load(getClass().getResource("doctorAccount.fxml"));
+                Scene accountScene = new Scene(accountRoot);
+                Stage window = (Stage) ((Button) event.getSource()).getScene().getWindow();
+                window.setScene(accountScene);
+                window.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+        else
+            error.setText("пользователь не найден");
+
+    }
+
+    public static String getLog() {
+        return log;
+    }
+
+    public static String getPassword() {
+        return password;
     }
 
     @FXML
@@ -64,6 +90,7 @@ public class ToComeDoctor {
         assert login != null : "fx:id=\"login\" was not injected: check your FXML file 'toComeDoctor.fxml'.";
         assert passwordField != null : "fx:id=\"passwordField\" was not injected: check your FXML file 'toComeDoctor.fxml'.";
         assert phoneNumberField != null : "fx:id=\"phoneNumberField\" was not injected: check your FXML file 'toComeDoctor.fxml'.";
+        assert error != null : "fx:id=\"error\" was not injected: check your FXML file 'toComeDoctor.fxml'.";
 
     }
 

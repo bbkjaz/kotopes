@@ -2,15 +2,19 @@ package com.example.vetclinik;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
+import javafx.scene.control.Label;
 public class Directory {
 
     @FXML
@@ -21,6 +25,38 @@ public class Directory {
 
     @FXML
     private Button back;
+
+    @FXML
+    private Button btnFind;
+    @FXML
+    private Label listt;
+
+
+    @FXML
+    private TextField name;
+
+    @FXML
+    private Label error;
+
+
+
+    @FXML
+    void toFind(ActionEvent event) {
+        DirectorySQL dir = DirectorySQL.getInstance();
+        if (name.getText().isEmpty()){
+            error.setText("не все поля заполнены");
+        }
+        else {
+            ArrayList<String> list = dir.listAppointments(name.getText());
+            String str = new String();
+            for (int i = 0; i<list.size();i++){
+                str+=list.get(i)+"\n";
+            }
+            listt.setText(str);
+
+        }
+
+    }
 
     @FXML
     void toBack(MouseEvent event) {
@@ -38,7 +74,11 @@ public class Directory {
     @FXML
     void initialize() {
         assert back != null : "fx:id=\"back\" was not injected: check your FXML file 'directory.fxml'.";
-
+        assert back != null : "fx:id=\"back\" was not injected: check your FXML file 'directory.fxml'.";
+        assert btnFind != null : "fx:id=\"btnFind\" was not injected: check your FXML file 'directory.fxml'.";
+        assert name != null : "fx:id=\"name\" was not injected: check your FXML file 'directory.fxml'.";
+        assert error != null : "fx:id=\"error\" was not injected: check your FXML file 'directory.fxml'.";
+        assert listt != null : "fx:id=\"listt\" was not injected: check your FXML file 'directory.fxml'.";
     }
 
 }

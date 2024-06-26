@@ -3,6 +3,8 @@ package com.example.vetclinik;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -37,9 +39,15 @@ public class DoctorAccount {
 
     @FXML
     private Label number;
+    @FXML
+    private Button reception;
 
     @FXML
     private Button toChangeData;
+    private DoctorSQL doctorSQL;
+    public DoctorAccount(){
+        doctorSQL = DoctorSQL.getInstance();
+    }
 
     @FXML
     void directory(MouseEvent event) {
@@ -92,6 +100,19 @@ public class DoctorAccount {
             e.printStackTrace();
         }
     }
+    @FXML
+    void toRecep(ActionEvent event) {
+        try {
+            Parent changeDataRoot = FXMLLoader.load(getClass().getResource("recep.fxml"));
+            Scene changeDataScene = new Scene(changeDataRoot);
+            Stage window = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            window.setScene(changeDataScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @FXML
     void initialize() {
@@ -101,8 +122,14 @@ public class DoctorAccount {
         assert myTricks != null : "fx:id=\"myTricks\" was not injected: check your FXML file 'doctorAccount.fxml'.";
         assert name != null : "fx:id=\"name\" was not injected: check your FXML file 'doctorAccount.fxml'.";
         assert number != null : "fx:id=\"number\" was not injected: check your FXML file 'doctorAccount.fxml'.";
+        assert reception != null : "fx:id=\"reception\" was not injected: check your FXML file 'doctorAccount.fxml'.";
         assert toChangeData != null : "fx:id=\"toChangeData\" was not injected: check your FXML file 'doctorAccount.fxml'.";
 
+        number.setText(ToComeDoctor.getLog());
+        String[] users = doctorSQL.getDoctor(ToComeDoctor.getLog());
+        name.setText(users[1]);
+        adres.setText(users[2]);
     }
 
 }
+
