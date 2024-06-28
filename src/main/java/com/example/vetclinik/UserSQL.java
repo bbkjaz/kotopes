@@ -25,9 +25,9 @@ public class UserSQL {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/vetclinica",
-                    "veloprokat", "Stud249013!");
-            String query = "SELECT телефон, password FROM Владелец Join passwords USING(id) WHERE телефон = ? AND password = ?";
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
+            String query = "SELECT телефон, password FROM владельцы Join passwords USING(id) WHERE телефон = ? AND password = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, phone);
             preparedStatement.setString(2, password);
@@ -71,9 +71,9 @@ public class UserSQL {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/vetclinica",
-                    "veloprokat", "Stud249013!");
-            String query = "INSERT INTO владелец (имя, телефон, адрес) VALUES (?, ?, ?)";
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
+            String query = "INSERT INTO владельцы (имя, телефон, адрес) VALUES (?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, phone);
@@ -115,9 +115,9 @@ public class UserSQL {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/vetclinica",
-                    "veloprokat", "Stud249013!");
-            String query = "SELECT id FROM Владелец WHERE телефон = ?";
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
+            String query = "SELECT id FROM владельцы WHERE телефон = ?";
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, phone);
 
@@ -156,8 +156,8 @@ public class UserSQL {
 
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/vetclinica",
-                    "veloprokat", "Stud249013!");
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
             String query = "INSERT INTO passwords (id, password) VALUES (?, ?)";
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, getId(phone));
@@ -196,9 +196,9 @@ public class UserSQL {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/vetclinica",
-                    "veloprokat", "Stud249013!");
-            String query = "SELECT id, имя, адрес, телефон FROM Владелец WHERE телефон = ?";
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
+            String query = "SELECT id, имя, адрес, телефон FROM владельцы WHERE телефон = ?";
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, phone);
 
@@ -254,9 +254,9 @@ public class UserSQL {
 
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/vetclinica",
-                    "veloprokat", "Stud249013!");
-            String query = "UPDATE владелец SET " + fieldName + " = ? WHERE id = ?";
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
+            String query = "UPDATE владельцы SET " + fieldName + " = ? WHERE id = ?";
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, newValue);
             preparedStatement.setInt(2, idClient);
@@ -290,23 +290,24 @@ public class UserSQL {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/vetclinica",
-                    "veloprokat", "Stud249013!");
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
 
             Statement statement = connection.createStatement();
 
             // Подготовка запроса
-            String query = "SELECT Приём_с_владельцем.дата AS дата, " +
-                    "Врач.имя AS имя_врача, " +
-                    "Приём_с_владельцем.время AS время_записи " +
-                    "FROM Приём_с_владельцем " +
-                    "JOIN Владелец ON Приём_с_владельцем.владелец_id = Владелец.id " +
-                    "JOIN Врач ON Приём_с_владельцем.врач_id = Врач.id " +
-                    "WHERE Владелец.телефон = ? and " +
-                    "Приём_с_владельцем.дата >= ?";
+            String query = //"SELECT записи.дата AS дата, " +
+                    "SELECT записи.id AS id_,записи.дата AS дата, "+
+            "врачи.имя AS имя_врача, " +
+                    "записи.время AS время_записи " +
+                    "FROM записи " +
+                    "JOIN животные ON записи.животное_id = животные.id " +
+                    "JOIN врачи ON записи.врач_id = врачи.id " +
+                    "WHERE животные.владелец_id = ? and " +
+                    "записи.дата >= ?";
 
             preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, phone);
+            preparedStatement.setInt(1, getId(phone));
             preparedStatement.setDate(2, java.sql.Date.valueOf(date));
 
 
@@ -316,6 +317,7 @@ public class UserSQL {
             while (resultSet.next()) {
 
                 String str = "";
+                str+= resultSet.getInt("id_")+ " ";
                 str+= resultSet.getString("дата")+ " ";
                 str+= resultSet.getString("имя_врача")+" ";
                 str+= resultSet.getString("время_записи");

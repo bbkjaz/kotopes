@@ -28,8 +28,8 @@ public class DirectorySQL {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/vetclinica",
-                    "veloprokat", "Stud249013!");
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
 
             Statement statement = connection.createStatement();
 

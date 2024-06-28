@@ -42,7 +42,7 @@ public class ChangeDoctor {
     private DoctorSQL doctorSQL;
     public ChangeDoctor(){
         doctorSQL = DoctorSQL.getInstance();
-        user = doctorSQL.getDoctor(ToComeDoctor.getLog());
+        user = doctorSQL.getDoctor(ToComeDoctor.getLog()); //подаем номер телефона, для получнения статик массив
     }
 
     @FXML

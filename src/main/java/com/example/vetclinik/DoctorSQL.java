@@ -15,7 +15,7 @@ public class DoctorSQL {
         if (instance == null) {
             instance = new DoctorSQL();
         }
-        return instance;
+        return instance; //синг
     }
     public static int getId(LocalDate date, String time) {
         Connection connection = null;
@@ -26,12 +26,12 @@ public class DoctorSQL {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/vetclinica",
-                    "veloprokat", "Stud249013!");
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
 
             String query = "SELECT в.id AS номер " +
-                    "FROM Врач в " +
-                    "LEFT JOIN Приём_с_владельцем пв ON в.id = пв.врач_id " +
+                    "FROM врачи в " +
+                    "LEFT JOIN записи пв ON в.id = пв.врач_id " +
                     "AND пв.дата = ? AND пв.время = ? " +
                     "WHERE пв.id IS NULL " +
                     "LIMIT 1";
@@ -71,9 +71,9 @@ public class DoctorSQL {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/vetclinica",
-                    "veloprokat", "Stud249013!");
-            String query = "SELECT телефон, password FROM врач Join passwords_doctor USING(id) WHERE телефон = ? AND password = ?";
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
+            String query = "SELECT телефон, password FROM врачи Join passwords_doctors USING(id) WHERE телефон = ? AND password = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, phone);
             preparedStatement.setString(2, password);
@@ -117,9 +117,9 @@ public class DoctorSQL {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/vetclinica",
-                    "veloprokat", "Stud249013!");
-            String query = "INSERT INTO врач ( имя, адрес, телефон) VALUES ( ?, ?, ?)";
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
+            String query = "INSERT INTO врачи ( имя, адрес, телефон) VALUES ( ?, ?, ?)";
 
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, name);
@@ -127,7 +127,7 @@ public class DoctorSQL {
             preparedStatement.setString(3, phone);
 
             int rowsInserted = preparedStatement.executeUpdate();
-            if (rowsInserted > 0) {
+            if (rowsInserted > 0) { //добавился ли врач?
                 addPassword(phone,password);
                 System.out.println("Врач успешно добавлен.");
                 return true;
@@ -152,7 +152,7 @@ public class DoctorSQL {
         return success;
     }
 
-    public static int getIdForAdd(String phone) {
+    public static int getIdForAdd(String phone) { //просто по телефону
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -161,9 +161,9 @@ public class DoctorSQL {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/vetclinica",
-                    "veloprokat", "Stud249013!");
-            String query = "SELECT id FROM врач WHERE телефон = ?";
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
+            String query = "SELECT id FROM врачи WHERE телефон = ?";
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, phone);
 
@@ -202,11 +202,11 @@ public class DoctorSQL {
 
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/vetclinica",
-                    "veloprokat", "Stud249013!");
-            String query = "INSERT INTO passwords_doctor (id, password) VALUES (?, ?)";
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
+            String query = "INSERT INTO passwords_doctors (id, password) VALUES (?, ?)";
             preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, getIdForAdd(phone));
+            preparedStatement.setInt(1, getIdForAdd(phone)); //метод выше
             preparedStatement.setString(2, password);
             int rowsAffected = preparedStatement.executeUpdate();
 
@@ -232,7 +232,7 @@ public class DoctorSQL {
         }
         return success;
     }
-    public String[] getDoctor(String phone) {
+    public String[] getDoctor(String phone) { //
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -241,9 +241,9 @@ public class DoctorSQL {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/vetclinica",
-                    "veloprokat", "Stud249013!");
-            String query = "SELECT id, имя, адрес, телефон FROM врач WHERE телефон = ?";
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
+            String query = "SELECT id, имя, адрес, телефон FROM врачи WHERE телефон = ?";
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, phone);
 
@@ -298,9 +298,9 @@ public class DoctorSQL {
 
         try {
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/vetclinica",
-                    "veloprokat", "Stud249013!");
-            String query = "UPDATE врач SET " + fieldName + " = ? WHERE id = ?";
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
+            String query = "UPDATE врачи SET " + fieldName + " = ? WHERE id = ?";
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, newValue);
             preparedStatement.setInt(2, idClient);
@@ -334,19 +334,19 @@ public class DoctorSQL {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/vetclinica",
-                    "veloprokat", "Stud249013!");
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
 
             Statement statement = connection.createStatement();
 
-            String query = "SELECT Приём_с_владельцем.дата AS дата, " +
-                    "Владелец.имя AS имя_клиента, " +
-                    "Приём_с_владельцем.время AS время_записи " +
-                    "FROM Приём_с_владельцем " +
-                    "JOIN Владелец ON Приём_с_владельцем.владелец_id = Владелец.id " +
-                    "JOIN Врач ON Приём_с_владельцем.врач_id = Врач.id " +
-                    "WHERE Врач.телефон = ? and " +
-                    "Приём_с_владельцем.дата >= ?";
+            String query = "SELECT записи.id AS id_, записи.дата AS дата, " +
+                    "животные.имя AS имя, " +
+                    "записи.время AS время_записи " +
+                    "FROM записи " +
+                    "JOIN животные ON записи.животное_id = животные.id " +
+                    "JOIN врачи ON записи.врач_id = врачи.id " +
+                    "WHERE врачи.телефон = ? and " +
+                    "записи.дата >= ?";
 
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, phone);
@@ -358,9 +358,12 @@ public class DoctorSQL {
             // Обработка результатов запроса
             while (resultSet.next()) {
                 String str = "";
+                str+= resultSet.getInt("id_")+ " ";
                 str+= resultSet.getString("дата")+ " ";
-                str+= resultSet.getString("имя_клиента")+" ";
+                str+= resultSet.getString("имя")+" ";
                 str+= resultSet.getString("время_записи");
+
+
 
                 list.add(str);
                 System.out.println("успешно");

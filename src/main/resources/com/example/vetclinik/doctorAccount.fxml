@@ -50,5 +50,6 @@
         <Label fx:id="number" layoutX="266.0" layoutY="147.0" text="79520780945" textFill="#611010" />
         <Label fx:id="adres" layoutX="266.0" layoutY="187.0" text="Москва, Никитинска 20" textFill="#431919" />
         <Button fx:id="reception" layoutX="311.0" layoutY="277.0" mnemonicParsing="false" onAction="#toRecep" text="провести прием" />
+        <Button fx:id="cancel" layoutX="311.0" layoutY="236.0" mnemonicParsing="false" onAction="#toCancel" text="отменить прием" />
     </children>
 </AnchorPane>

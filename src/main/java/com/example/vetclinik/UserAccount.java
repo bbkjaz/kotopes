@@ -3,6 +3,8 @@ package com.example.vetclinik;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -37,6 +39,10 @@ public class UserAccount {
 
     @FXML
     private Label phone;
+    @FXML
+    private Button cancel;
+
+
 
     @FXML
     private Button toChangeData;
@@ -56,6 +62,20 @@ public class UserAccount {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    void toCancel(ActionEvent event) {
+        try {
+            Parent myTricksRoot = FXMLLoader.load(getClass().getResource("cancelUser.fxml"));
+            Scene myTricksScene = new Scene(myTricksRoot);
+            Stage window = (Stage) myTricks.getScene().getWindow();
+            window.setScene(myTricksScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @FXML
     void myTricks(MouseEvent event) {
@@ -101,6 +121,7 @@ public class UserAccount {
     void initialize() {
         assert adres != null : "fx:id=\"adres\" was not injected: check your FXML file 'userAccount.fxml'.";
         assert back != null : "fx:id=\"back\" was not injected: check your FXML file 'userAccount.fxml'.";
+        assert cancel != null : "fx:id=\"cancel\" was not injected: check your FXML file 'userAccount.fxml'.";
         assert makeAnAppointment != null : "fx:id=\"makeAnAppointment\" was not injected: check your FXML file 'userAccount.fxml'.";
         assert myTricks != null : "fx:id=\"myTricks\" was not injected: check your FXML file 'userAccount.fxml'.";
         assert name != null : "fx:id=\"name\" was not injected: check your FXML file 'userAccount.fxml'.";

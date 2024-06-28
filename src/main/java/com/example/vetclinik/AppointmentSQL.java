@@ -1,5 +1,9 @@
 package com.example.vetclinik;
 
+import com.example.vetclinik.DoctorSQL;
+import com.example.vetclinik.PetSQL;
+import com.example.vetclinik.UserSQL;
+
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -25,16 +29,16 @@ public class AppointmentSQL {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/vetclinica",
-                    "veloprokat", "Stud249013!");
-            String query = "INSERT INTO приемы_с_владельцами (дата, время, животное_id, владелец_id, врач_id) VALUES (?, ?, ?, ?, ?)";
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
+            String query = "INSERT INTO записи (дата, время, животное_id, врач_id) VALUES (?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setDate(1, java.sql.Date.valueOf(date));
             preparedStatement.setString(2, time);
             preparedStatement.setInt(3, PetSQL.getId(phone,name));
-            preparedStatement.setInt(4,UserSQL.getId(phone) );
+            //preparedStatement.setInt(4, UserSQL.getId(phone) );
             if (DoctorSQL.getId(date,time)!= -1) {
-                preparedStatement.setInt(5, DoctorSQL.getId(date, time));
+                preparedStatement.setInt(4, DoctorSQL.getId(date, time));
 
                 int rowsInserted = preparedStatement.executeUpdate();
                 if (rowsInserted > 0) {
@@ -63,7 +67,7 @@ public class AppointmentSQL {
         return success;
     }
 
-    public boolean isOcupiedForUser(String phone,LocalDate date, String time){
+    /*public boolean isOcupiedForUser(String phone,LocalDate date, String time){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -73,13 +77,13 @@ public class AppointmentSQL {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/veloprokat",
-                    "veloprokat", "Stud249013!");
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
 
             Statement statement = connection.createStatement();
 
             String query = "SELECT id" +
-                    "FROM прием_с_владельцами" +
+                    "FROM записи" +
                     "WHERE владелец_id = ? " +
                     "AND дата = ? " +
                     "AND время = ?";
@@ -117,7 +121,7 @@ public class AppointmentSQL {
         }
         return false;
     }
-    public int isOcupiedForUser(int id_n){
+    /*public int isOcupiedForUser(int id_n){
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -127,13 +131,13 @@ public class AppointmentSQL {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/veloprokat",
-                    "veloprokat", "Stud249013!");
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
 
             Statement statement = connection.createStatement();
 
             String query = "SELECT id" +
-                    "FROM приемы_с_владельцами" +
+                    "FROM записи" +
                     "WHERE id = ? ";
 
             preparedStatement = connection.prepareStatement(query);
@@ -169,5 +173,46 @@ public class AppointmentSQL {
             }
         }
         return id;
+    }*/
+
+    public boolean deleteAppointment(int id_app) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
+
+            String deleteQuery = "DELETE FROM записи WHERE id = ?";
+
+            preparedStatement = connection.prepareStatement(deleteQuery);
+            preparedStatement.setInt(1, id_app);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+            if (rowsAffected > 0) {
+                return true;
+            } else {
+                System.out.println("ошиюбка");
+            }
+
+        }
+        catch (ClassNotFoundException e) {
+            System.err.println("Не найден драйвер JDBC: " + e.getMessage());
+        }
+        catch (SQLException e) {
+            System.err.println("Ошибка при выполнении SQL-запроса: " + e.getMessage());
+        }
+        finally {
+            try {
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                System.err.println("Ошибка при закрытии соединения: " + e.getMessage());
+            }
+        }
+        return false;
     }
 }
+

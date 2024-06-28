@@ -28,9 +28,9 @@ public class RecepSQL {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/vetclinica",
-                    "veloprokat", "Stud249013!");
-            String query = "INSERT INTO приемы_заболевания (приём_id, заболевание_id) VALUES (?, ?)";
+                    "jdbc:mysql://localhost:3306/vetclinic",
+                    "Kvashnina", "-bL*)jxbvjMg.NVG");
+            String query = "INSERT INTO приемы (id_записи, id_болезни) VALUES (?, ?)";
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, id);
             preparedStatement.setInt(2,id_d );

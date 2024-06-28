@@ -134,19 +134,3 @@ public class ToComeUser {
 
 }
 
-
-    /*@FXML
-    void toBack(MouseEvent event) {
-        try {
-            Parent userLoginRoot = FXMLLoader.load(getClass().getResource("userLogin.fxml"));
-            Scene userLoginScene = new Scene(userLoginRoot);
-            Stage window = (Stage) ((Button) event.getSource()).getScene().getWindow();
-            window.setScene(userLoginScene);
-            window.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-*/
-
-

@@ -87,7 +87,7 @@ public class ChangeUser {
         assert save != null : "fx:id=\"save\" was not injected: check your FXML file 'changeUser.fxml'.";
         assert number != null : "fx:id=\"number\" was not injected: check your FXML file 'changeUser.fxml'.";
 
-        number.setText(ToComeDoctor.getLog());
+        number.setText(ToComeUser.getLogin());
         name.setText(user[1]);
         adres.setText(user[2]);
     }

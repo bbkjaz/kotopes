@@ -43,6 +43,9 @@ public class DoctorAccount {
     private Button reception;
 
     @FXML
+    private Button cancel;
+
+    @FXML
     private Button toChangeData;
     private DoctorSQL doctorSQL;
     public DoctorAccount(){
@@ -74,6 +77,20 @@ public class DoctorAccount {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    void toCancel(ActionEvent event) {
+        try {
+            Parent tricksRoot = FXMLLoader.load(getClass().getResource("cancel.fxml"));
+            Scene tricksScene = new Scene(tricksRoot);
+            Stage window = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            window.setScene(tricksScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @FXML
     void toBack(MouseEvent event) {
@@ -114,6 +131,7 @@ public class DoctorAccount {
     }
 
 
+
     @FXML
     void initialize() {
         assert adres != null : "fx:id=\"adres\" was not injected: check your FXML file 'doctorAccount.fxml'.";
@@ -124,12 +142,14 @@ public class DoctorAccount {
         assert number != null : "fx:id=\"number\" was not injected: check your FXML file 'doctorAccount.fxml'.";
         assert reception != null : "fx:id=\"reception\" was not injected: check your FXML file 'doctorAccount.fxml'.";
         assert toChangeData != null : "fx:id=\"toChangeData\" was not injected: check your FXML file 'doctorAccount.fxml'.";
+        assert cancel != null : "fx:id=\"cancel\" was not injected: check your FXML file 'doctorAccount.fxml'.";
 
         number.setText(ToComeDoctor.getLog());
         String[] users = doctorSQL.getDoctor(ToComeDoctor.getLog());
         name.setText(users[1]);
         adres.setText(users[2]);
     }
+
 
 }
 
